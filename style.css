@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root{
+    --cor-primaria :#2C3639;
+    --cor-secundaria : #DCD7C9;
+    --cor-terciaria: #A27B5C;
+
+    --fonte-primaria: 'Krona One', sans-serif;
+    --fonte-secundaria: 'montserrat', sans-serif;
+} /* Utilizando propriedades CSS variáveis , estamos criando pseudoclasses para as cores para poder utilizar no nosso projeto, 
+    caso precisamos trocar de cor , não iremos codigo por codigo alterando e sim somente na pseudoclasse . https://developer.mozilla.org/pt-BR/docs/Web/CSS/Using_CSS_custom_properties*/
+* {
+    margin: 0;
+    padding: 0;/* Resetar os espaços que da nossa paginas que ja vem padrão do navegados*/
+}
+body{
+    height: 100vh; /* Altura dos objetos da nossa tela, altura maximo do dispositivo que o nosso "site" será demonstrado*/
+    box-sizing: border-box; /* è utilizado para que os elementos filhos (Imagems , textos) não ultrapassão a margem do elemnto pai (body)*/ 
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+}
+
+.destaque-titulo{
+    color: var(--cor-secundaria)
+}
+.cabecalho{
+    padding: 2% 0% 0% 15%; /*Foi utilizado "%" ao inves de "px" por conta que px é um valor fixo ex: 2px no monitor ficou bom , mas 2px no celular ficou rium a vizualiação; O % é o valor que varia de tela para tela ex:2% do monitor , 2% da tela do celular*/
+
+}
+.cabecalho_menu{
+    display: flex;
+    gap: 80px;
+}
+.cabecalho_menu_link{
+    font-family: var(--fonte-secundaria);
+    font-size: 1.5rem; /* A unidade de medida "rem" irá servi para que quando a pessoa aumente ou diminua a fonte do navegador , a nossa pagina aumente ou diminua junto com o nevegador*/
+    font-weight: 600;
+    color: var(--cor-terciaria) ;
+    text-decoration: none;
+}
+.apresentacao{
+    padding: 5% 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* utilizamos essa tag para espacaçar a imagem com o texto*/
+    gap: 82px;
+}
+
+.apresentacao__conteudo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+}
+
+.apresentacao__conteudo__titulo {
+    font-size: 2.25rem;
+    font-family: var(--fonte-primaria); /* alem de importa a font direto do google (acessando google font) linha 1 do nosso arquivo de CSS
+                                           no goole font tambem possui como devemos utilizar para que nossa font mude alem de importar , no nosso caso
+                                           foi a "'Krona One', sans-serif;" https://fonts.google.com/specimen/Krona+One?query=krona+one*/
+}
+
+.apresentacao__conteudo__texto {
+    font-size: 1.5rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.apresentacao__links{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px; /* GAP da espeço entre os botões , paragrafos ... */
+}
+.apresentacao__links__subtitulo{
+    font-family: var(--fonte-primaria);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.apresentacao__links__navegacao {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    border: 2px solid var(--cor-terciaria);
+    width: 50%; /*Lembrando que o "%" é referente ao elemento pai , ao tamanho do elemento pai*/
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding: 21.5px 0;
+    text-decoration: none;
+    color: var(--cor-secundaria);
+    font-family: var(--fonte-secundaria);
+
+
+}
+
+.apresentacao__links__link:hover {
+  background-color: #272727;  
+}
+/* "hover" é um elemento que serve para indicar que o mouse passou por cima do botão , como é o caso desse exemplo
+usamos para alterar a cor quando o mouse passar por cima do botão , para o hover funcionar 
+precisa ser encostado com o : ex: link:hover */
+
+.apresentacao__imagem{
+    width: 50%;
+}
+.rodape {
+    color: var(--cor-primaria);
+    background-color: var(--cor-terciaria);
+    padding: 24px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: var(--fonte-secundaria);
+    font-weight: 400;
+}
+
+@media ( max-width: 1200px) {
+    .cabecalho{
+        padding: 10%;
+    }
+    .cabecalho_menu{
+        justify-content: center;
+    }
+    .apresentacao{
+        flex-direction: column-reverse;
+        padding: 5% ;
+    }
+    /*Usamos @media para dar uma condição no nosso codigo , indicamos
+    que apartir de um determinado tamanho de tela , o comportamento 
+    do que irá ser visualizado na tela irá muda, após abrir a condição
+    determinamos o que seria mudado , mudamos a imagem para aparecer em cima
+    dos textos , como seria a visualização em uma tela mobile*/
+   
+    /* flex-direction : column-reverse serve para gente colocara a imagem
+    em coluna , no caso acima do textos , porem como a nossa imagem estava
+    informada abaixo dos paragrafos , logo informamos columns-reverse que altera
+    o comportamento do codigo , o que estava em cima vai para baixo e o que estava
+    em baixo para cima*/
+    .apresentacao__conteudo{
+        width: auto;
+        /*o valor auto , ele irá preencher automaticamente o espaço dos paragafos
+        nas telas menores e vai acompanhar o tamanho da tela de forma automática.*/
+    }
+}
